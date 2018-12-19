@@ -101,7 +101,6 @@ trait ResponseManagement
             default:
                 return new $reflectedClass($contents);
         }
-
     }
 
     /**

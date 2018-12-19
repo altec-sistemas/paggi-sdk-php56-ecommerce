@@ -29,16 +29,8 @@ use Paggi\SDK\Interfaces\IRestClient;
  */
 class RestClient implements IRestClient
 {
-    private static $container;
     private static $prefixUrl = "https://api.";
     private static $suffixUrl = "paggi.com/v1/";
-
-    public function __construct()
-    {
-        //$builder = new \DI\ContainerBuilder();
-        //$builder->addDefinitions('ConfigDI.php');
-        //self::$container = $builder->build();
-    }
 
     /**
      * Function who will set the HTTP method
