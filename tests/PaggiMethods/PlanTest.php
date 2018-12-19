@@ -36,12 +36,12 @@ class PlanTest extends \PHPUnit\Framework\TestCase
     public function testGetPlans()
     {
         $envConfiguration = new \Paggi\SDK\EnvironmentConfiguration();
-        $PlansFinder = new \Paggi\SDK\Plan();
+        $plansFinder = new \Paggi\SDK\Plan();
         $envConfiguration->setEnv("Staging");
         $envConfiguration->setToken(getenv("TOKEN"));
         $envConfiguration->setPartnerIdByToken(getenv("TOKEN"));
 
-        $Plans = $PlansFinder->find([], "03277df9-175d-468f-a99c-77e056434138");
+        $plans = $plansFinder->find([], "03277df9-175d-468f-a99c-77e056434138");
         $this->assertTrue(isset($Plans->id));
     }
 
@@ -89,14 +89,14 @@ class PlanTest extends \PHPUnit\Framework\TestCase
             "external_identifier" => "12345",
             "description" => "teste",
         ];
-        $PlanResponse = $plan->create($planParams);
+        $planResponse = $plan->create($planParams);
 
         $updateParams
         = [
             "description" => "abcde",
         ];
-        $alterPlan = $plan->update($updateParams, $PlanResponse->id);
-        $this->assertTrue($PlanResponse->description != $alterPlan->description);
+        $alterPlan = $plan->update($updateParams, $planResponse->id);
+        $this->assertTrue($planResponse->description != $alterPlan->description);
     }
 
     public function testDeletePlan()
@@ -117,13 +117,13 @@ class PlanTest extends \PHPUnit\Framework\TestCase
             "external_identifier" => "12345",
             "description" => "teste",
         ];
-        $PlanResponse = $plan->create($planParams);
+        $planResponse = $plan->create($planParams);
 
         $updateParams
         = [
             "description" => "abcde",
         ];
-        $alterPlan = $plan->delete($PlanResponse->id);
+        $alterPlan = $plan->delete($planResponse->id);
         $this->assertEquals($alterPlan->code, 204);
     }
 }
