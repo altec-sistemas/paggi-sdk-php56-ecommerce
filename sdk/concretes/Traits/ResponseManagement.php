@@ -79,13 +79,13 @@ trait ResponseManagement
                     array_push($parametros, [$key => $value]);
                 }
                 return (object) [
-                    "code" => $code, "mensagem" => "Foi encontrado um erro validando algum parâmetro do corpo da requisição",
+                    "code" => $code, "mensagem" => "Foi encontrado um erro em algum parâmetro do corpo da requisição",
                     "parameters" => [$parametros],
                 ];
             case 204:
                 return (object) ["code" => $code, "mensagem" => "Deletado com sucesso."];
             case 400:
-                return (object) ["code" => $code, "mensagem" => "Algum parâmetro ou cabeçalho HTTP requerido está ausente."];
+                return (object) ["code" => $code, "mensagem" => "Algum parâmetro ou cabeçalho HTTP está ausente."];
             case 401:
                 return (object) ["code" => $code, "mensagem" => "Não autorizada."];
             case 402:
@@ -93,7 +93,7 @@ trait ResponseManagement
             case 500:
                 return (object) ["code" => $code, "mensagem" => "Erro interno no servidor."];
             case 501:
-                return (object) ["code" => $code, "mensagem" => "O método HTTP que você usou não é implementado para o recurso solicitado."];
+                return (object) ["code" => $code, "mensagem" => "Este método não é implementado para esse recurso."];
             case 502:
                 return (object) ["code" => $code, "mensagem" => "Ocorreu um erro na infraestrutura Paggi."];
             case 503:
