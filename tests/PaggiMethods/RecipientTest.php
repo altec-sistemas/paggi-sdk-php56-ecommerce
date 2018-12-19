@@ -112,7 +112,6 @@ class RecipientTest extends \PHPUnit\Framework\TestCase
             ],
         ];
         $alterRecipient = $recipient->update($updateParams, $recipientResponse->id);
-        var_dump(json_encode($alterRecipient));
         $this->assertTrue($recipientResponse->name != $alterRecipient->name);
     }
 }
